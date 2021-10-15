@@ -15,7 +15,6 @@ for k in range(0,N):
 compteur = M * [2 * [0]]
 for l in range(0 , M):
     compteur[l] = [int(line[N+1+l].split()[0]), int(line[N+1+l].split()[1])]
-
 File2 = open(sys.argv[2], 'w')
 File2.write("Maximize\n")
 File2.write("z: ")
@@ -25,17 +24,13 @@ for k in range(0,N):
         File2.write(str(Ci[k])+" x"+str(k))
     else:
         File2.write(str(Ci[k]) + " x" + str(k) + " + ")
-File2.write("\nSubject To")
-tmp = 299
-for k in range(0, M):
-    if compteur[k][0] != tmp:
-        if tmp == 299:
-            tmp = 0
-        else:
-            tmp += 1
+File2.write("\nSubject To\n")
 
-    else:
-        print(compteur[k][0], "coucou")
+for m in range(0,M):
+    print("X_",compteur[m][0]," + X_", compteur[m][1]," >=2")
+    File2.write("Connaissance"+str(m)+": x"+str(compteur[m][0])+" + x"+str(compteur[m][1])+" >= 2\n")
+
+
 File2.write("\nBinaries\n")
 for k in range(0, N):
     File2.write("x"+str(k)+"\n")
