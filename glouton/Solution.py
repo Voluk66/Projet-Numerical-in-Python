@@ -66,23 +66,23 @@ class C_Solution:
 
     def Heuristique(self):
 
-        self.CalculeConnsConfirmees()
+        var = self.CalculeConnsConfirmees()
         Index = 0
-        Score = []
+        Tot = []
 
         for i in range(self.S_nbr_contraintes):
 
-            Score.append(0)
+            Tot.append(0)
 
             for j in range(len(S_TabVji[i])):
 
-                if (S_Conns_Confirmees[S_Tab_Vji[i][j] - 1] == 0):
+                if (var[S_Tab_Vji[i][j] - 1] == 0):
 
-                    Score[i] = Score[i] + 1
+                    Tot[i] = Tot[i] + 1
 
-            Score[i] = float(Score[i] / S_Tab_Count[i])
+            Tot[i] = Tot[i] / self.S_Tab_Count[i]
 
-            if Score[i] > Score[Index]:
+            if Tot[i] > Tot[Index]:
 
                 Index = i
 

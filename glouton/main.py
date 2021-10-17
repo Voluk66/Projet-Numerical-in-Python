@@ -3,20 +3,37 @@ import 'Solution.py'
 
 def getConns(lines, n):
 
-    cost = []
+
     count = n
+    chaine = []
 
 
 
     for i in range(count):
 
-        if len(lines[i]) != 27:
+        if len(lines[i+2]) == 0:
             break
 
-        chaine = lines[i][15:27]
-        cost.append(chaine)
+        var = lines[i+2]
 
-    return cost
+        for j in var:
+            numero = []
+            if j == 'x':
+                for k in range(len(var)):
+
+                    while var[i][k] != " ":
+                        numero.append(var[i][k])
+
+                    if numero not in chaine:
+                        chaine.extend([numero,1])
+
+                    if numero in chaine:
+                        chaine[chaine.index(numero)][1] = chaine[chaine.index(numero)][1] + 1
+
+    return chaine
+
+
+
 
 
 def getCost(lines, m):
@@ -27,6 +44,10 @@ def getCost(lines, m):
         nb_conn = len(lines) - 306
 
         var = lines[i].split()
+
+
+
+
 
 
 
@@ -50,8 +71,8 @@ if __name__ == '__main__':
     for i in instance:
         lines.append(i)
 
-    n = 2
-    m = len(lines) - n
+    m = 2
+    n = len(lines) - m
 
     cost = getCost(lines, m)
 
@@ -59,7 +80,7 @@ if __name__ == '__main__':
 
     instance.close()
 
-    C_solution S = C_Solution(m, n, cost, Conns)
+    C_solution S = C_Solution(n, m, cost, Conns)
     fin = S.AlgorithmeGlouton()
     print(fin)
 
