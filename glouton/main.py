@@ -1,5 +1,7 @@
+#!/usr/bin/env python
 import sys
-import 'Solution.py'
+from Solution import *
+from convertion import *
 
 def getConns(lines, n):
 
@@ -52,12 +54,13 @@ def getCost(lines, m):
 
 
 
-        Conns.append
+    Conns.append
 
 if __name__ == '__main__':
 
+    namelp = sys.argv[1].split(".")[0] + ".lp"
 
-
+    exec("convertion.py", sys.argv[1].__to_dict__, namelp.__to_dict__)
     if len(sys.argv) != 2:
         print('Entrez deux arguments')
 
@@ -80,7 +83,7 @@ if __name__ == '__main__':
 
     instance.close()
 
-    C_solution S = C_Solution(n, m, cost, Conns)
+    S = Solution.C_Solution(n, m, cost, Conns)
     fin = S.AlgorithmeGlouton()
     print(fin)
 
@@ -88,7 +91,7 @@ if __name__ == '__main__':
     instance2.write(fin)
     instance2.close()
 
-    return 0
+
 
 
 
