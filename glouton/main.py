@@ -26,20 +26,22 @@ def getCost(lines, m):
     for i in range(m):
         nb_conn = len(lines) - 306
 
+        var = lines[i].split()
 
 
 
 
-            Conns.append
+        Conns.append
 
 if __name__ == '__main__':
 
 
 
-    if len(sys.argv) != 1:
-        print('Entrez un unique argument')
+    if len(sys.argv) != 2:
+        print('Entrez deux arguments')
 
     filename = sys.argv[1]
+    filewrite = sys.argv[2]
 
     instance = open(filename)
 
@@ -48,6 +50,8 @@ if __name__ == '__main__':
     for i in instance:
         lines.append(i)
 
+    n = 2
+    m = len(lines) - n
 
     cost = getCost(lines, m)
 
@@ -55,9 +59,17 @@ if __name__ == '__main__':
 
     instance.close()
 
-    C_solution S = C_Solution(n, m, cost, Conns)
+    C_solution S = C_Solution(m, n, cost, Conns)
     fin = S.AlgorithmeGlouton()
     print(fin)
+
+    instance2 = open(filewrite, "w")
+    instance2.write(fin)
+    instance2.close()
+
+    return 0
+
+
 
 
 
