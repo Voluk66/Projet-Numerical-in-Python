@@ -49,4 +49,15 @@ if __name__ == '__main__':
         lines.append(i)
 
 
+    cost = getCost(lines, m)
+
+    Conns = getConns(lines, n)
+
+    instance.close()
+
+    C_solution S = C_Solution(n, m, cost, Conns)
+    fin = S.AlgorithmeGlouton()
+    print(fin)
+
+
 
