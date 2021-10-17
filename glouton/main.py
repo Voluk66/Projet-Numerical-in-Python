@@ -59,8 +59,7 @@ def getCost(lines, m):
 if __name__ == '__main__':
 
     namelp = sys.argv[1].split(".")[0] + ".lp"
-
-    exec("convertion.py", sys.argv[1].__to_dict__, namelp.__to_dict__)
+    exec("convertion.py argv[1] namelp",{'argv[1]': sys.argv[1], 'namelp': namelp})
     if len(sys.argv) != 2:
         print('Entrez deux arguments')
 
