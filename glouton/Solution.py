@@ -76,11 +76,10 @@ class C_Solution:
 
             for j in range(len(S_TabVji[i])):
 
-                if (var[S_Tab_Vji[i][j] - 1] == 0):
 
-                    Tot[i] = Tot[i] + 1
 
-            Tot[i] = Tot[i] / self.S_Tab_Count[i]
+
+                Tot[i] = Tot[i] / self.S_Tab_Count[i]
 
             if Tot[i] > Tot[Index]:
 
